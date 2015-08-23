@@ -1,7 +1,10 @@
 App = React.createClass({
   render() {
     return (
-      <Book />
+      <div>
+        <Book name="junjun"/>
+        <Book name="takashi"/>
+      </div>
     );
   }
 });
