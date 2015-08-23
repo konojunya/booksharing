@@ -4,6 +4,7 @@ App = React.createClass({
       <div>
         <Book name="junjun"/>
         <Book name="takashi"/>
+        <BookInput/>
       </div>
     );
   }
