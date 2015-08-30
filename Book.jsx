@@ -20,8 +20,8 @@ Book = React.createClass({
         <CardMedia overlay={<CardTitle title={this.props.title} subtitle="Subtitle"/>}>
           <img style = {card_media_style} src="http://lorempixel.com/600/337/nature/"/>
         </CardMedia>
-        <input type="button" value="Delete" onClick={this._removeBooks}/>
-       </Card>
+        <FlatButton label="Delete" onClick={this._removeBooks}/>
+      </Card>
      </div>
    );
  }

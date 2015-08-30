@@ -17,7 +17,7 @@ BookInput = React.createClass({
     this.setState({value: event.target.value.substr(0, 140)});
   },
  _handleSubmit: function(event) {
-   Books.insert({title: this.state.value})
+   Books.insert({title: this.state.value});
    this.state.value = "Book Title ! ";
   },
   mixins: [ReactMeteorData],
