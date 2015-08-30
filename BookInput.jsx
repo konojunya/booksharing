@@ -11,13 +11,14 @@ BookInput = React.createClass({
         };
     },
   getInitialState: function() {
-   return {value: 'Hello!'};
+   return {value: 'Book Title !'};
  },
  _handleChange: function(event) {
     this.setState({value: event.target.value.substr(0, 140)});
   },
  _handleSubmit: function(event) {
    Books.insert({title: this.state.value})
+   this.state.value = "Book Title ! ";
   },
   mixins: [ReactMeteorData],
   getMeteorData() {
@@ -30,7 +31,7 @@ BookInput = React.createClass({
      <div>
        <h1>{this.state.value}</h1>
       <TextField
-       multiLine={true} value={this.state.value} onChange={this._handleChange}/>
+       multiLine={true} placeholder={this.state.value} onChange={this._handleChange}/>
      <FlatButton label="登録" type="submit" onClick={this._handleSubmit}/>
      </div>
    );

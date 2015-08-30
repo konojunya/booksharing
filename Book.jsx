@@ -6,17 +6,22 @@ Book = React.createClass({
    },
  render: function() {
    card_style = {
-     width: '30%',
-     float: 'left'
+     width: '25%',
+     float: 'left',
+     margin: '2% 2%',
+     backgroundColor: 'white'
+   };
+   card_media_style = {
+     height: '100%'
    };
    return (
      <div>
       <Card style = {card_style}>
         <CardMedia overlay={<CardTitle title={this.props.title} subtitle="Subtitle"/>}>
-          <img src="http://lorempixel.com/600/337/nature/"/>
+          <img style = {card_media_style} src="http://lorempixel.com/600/337/nature/"/>
         </CardMedia>
+        <input type="button" value="Delete" onClick={this._removeBooks}/>
        </Card>
-       <input type="button" value="Delete" onClick={this._removeBooks}/>
      </div>
    );
  }
