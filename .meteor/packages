@@ -12,3 +12,6 @@ react-meteor-data
 endotakashi:material-ui-mixin
 izzilab:material-ui
 lablancas:twitter
+accounts-ui
+accounts-password
+accounts-twitter
