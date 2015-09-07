@@ -24,9 +24,9 @@ App = React.createClass({
         <AppBar title="Booksharing" iconClassNameRight = "muidocs-icon-navigation-expand-more" />
         <LinearProgress mode="indeterminate" />
         <BookInput/>
-          {this.data.allBooks.map(function(book) {
+          {this.data.allBooks.map(function(book,i) {
               return (
-                <Book title={book.title} id={book._id}/>
+                <Book title={book.title} id={book._id} good={book.good} key={i}/>
               );
           })}
       </div>
