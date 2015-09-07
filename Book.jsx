@@ -8,7 +8,7 @@ Book = React.createClass({
      if(!Tickets.findOne({userId: Meteor.userId(),BookId: this.props.id})){
        Meteor.call("goodbtn",this.props.id);
      }else{
-       console.log("重複不可");
+       console.log("重複不可能");
      }
    },
  render: function() {
