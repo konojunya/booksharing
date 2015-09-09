@@ -15,22 +15,30 @@ App = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData() {
       return {
-        allBooks: Books.find().fetch()
+        allBooks: Books.find({},{sort: {good: -1}}).fetch()
       };
     },
   render() {
-    return (
-      <div>
-        <AppBar title="Booksharing" iconClassNameRight = "muidocs-icon-navigation-expand-more" />
-        <LinearProgress mode="indeterminate" />
-        <BookInput/>
-          {this.data.allBooks.map(function(book,i) {
-              return (
-                <Book title={book.title} id={book._id} good={book.good} key={i}/>
-              );
-          })}
-      </div>
-    );
+    if(Meteor.userId()){
+      return (
+        <div>
+          <AppBar title="Honto" iconClassNameRight = "muidocs-icon-navigation-expand-more" />
+          <LinearProgress mode="indeterminate" />
+          <BookInput/>
+            {this.data.allBooks.map(function(book,i) {
+                return (
+                  <Book title={book.title} id={book._id} good={book.good} key={i}/>
+                );
+            })}
+        </div>
+      );
+    }else{
+      return(
+        <div>
+          <h1>ログインしてください</h1>
+        </div>
+      );
+    }
   }
 });
 
