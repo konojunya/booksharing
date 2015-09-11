@@ -15,11 +15,12 @@ App = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData() {
       return {
-        allBooks: Books.find({},{sort: {good: -1}}).fetch()
+        allBooks: Books.find({},{sort: {good: -1}}).fetch(),
+        currentUser: Meteor.user()
       };
     },
   render() {
-    if(Meteor.userId()){
+    if(this.data.currentUser){
       return (
         <div>
           <AppBar title="Honto" iconClassNameRight = "muidocs-icon-navigation-expand-more" />

@@ -1,15 +1,18 @@
 var { DatePicker, TextField, Card, CardHeader, FlatButton,CardMedia,CardTitle } = MUI;
 
 Book = React.createClass({
-  _removeBooks: function(event) {
-    Meteor.call("removeBook",this.props.id)
-   },
    _goodbtn: function(){
      if(!Tickets.findOne({userId: Meteor.userId(),BookId: this.props.id})){
        Meteor.call("goodbtn",this.props.id);
      }else{
        console.log("重複不可能");
      }
+   },
+   mixins: [ReactMeteorData],
+   getMeteorData() {
+     return {
+       allComments: Comments.find({BookId: this.props.id}).fetch()
+     };
    },
  render: function() {
    card_style = {
@@ -27,9 +30,16 @@ Book = React.createClass({
         <CardMedia overlay={<CardTitle title={this.props.title} subtitle="Subtitle"/>}>
           <img style = {card_media_style} src="http://lorempixel.com/600/337/nature/"/>
         </CardMedia>
-        <FlatButton label="Delete" onClick={this._removeBooks}/>
         <FlatButton label="イイね" onClick={this._goodbtn} />
           <span>  {this.props.good}</span>
+        <FlatButton label="コメント" />
+      </Card>
+      <Card>
+        {this.data.allComments.map(function(data){
+          return (
+            <span>{data.Contents}</span>
+          );
+        })}
       </Card>
      </div>
    );
