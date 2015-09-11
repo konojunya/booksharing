@@ -33,8 +33,6 @@ Book = React.createClass({
         <FlatButton label="イイね" onClick={this._goodbtn} />
           <span>  {this.props.good}</span>
         <FlatButton label="コメント" />
-      </Card>
-      <Card>
         {this.data.allComments.map(function(data){
           return (
             <span>{data.Contents}</span>
