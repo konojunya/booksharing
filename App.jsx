@@ -19,14 +19,14 @@ App = React.createClass({
         currentUser: Meteor.user()
       };
     },
-  render() {
+  render:function(){
     if(this.data.currentUser){
       return (
         <div>
           <AppBar title="Honto" iconClassNameRight = "muidocs-icon-navigation-expand-more" />
           <LinearProgress mode="indeterminate" />
           <BookInput/>
-            {this.data.allBooks.map(function(book,i) {
+             {this.data.allBooks.map(function(book,i) {
                 return (
                   <Book title={book.title} id={book._id} good={book.good} key={i}/>
                 );
